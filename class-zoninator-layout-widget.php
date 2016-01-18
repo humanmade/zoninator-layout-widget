@@ -14,6 +14,9 @@ class Z_Zoninator_Layout_Widget extends Extended_Widget {
 	}
 
 	public function get_vars() {
+		if ( ! function_exists( 'z_get_zones' ) ) {
+			return [];
+		}
 
 		$layouts   = Zoninator_Layout::get_layouts();
 		$zone_id   = isset( $this->instance['zone_id'] ) ? absint( $this->instance['zone_id'] ) : 0;
@@ -49,6 +52,11 @@ class Z_Zoninator_Layout_Widget extends Extended_Widget {
 	}
 
 	public function form( $instance ) {
+		if ( ! function_exists( 'z_get_zones' ) ) {
+			esc_html_e( 'You need to activate the Zoninator plugin.', 'zoninator-layout-widget' );
+			return;
+		}
+
 		$zones = z_get_zones();
 		if ( empty( $zones ) ) {
 			esc_html_e( 'You need to create at least one zone before you use this widget.', 'zoninator-layout-widget' );
