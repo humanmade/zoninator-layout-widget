@@ -37,8 +37,9 @@ class Z_Zoninator_Layout_Widget extends Extended_Widget {
 		}
 
 		return [
-			'posts' => $posts,
-			'zone'  => $zone,
+			'posts'     => $posts,
+			'zone'      => $zone,
+			'layout_id' => $layout_id,
 		];
 	}
 
