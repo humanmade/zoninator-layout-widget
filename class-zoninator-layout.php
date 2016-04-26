@@ -17,7 +17,8 @@ class Zoninator_Layout {
 				$files[ $f ] = $name;
 			}
 		}
-		// sort( $files, SORT_NATURAL );
+		sort( $files, SORT_NATURAL );
+
 		return $files;
 	}
 
